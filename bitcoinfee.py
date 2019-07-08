@@ -27,7 +27,7 @@ def main():
 
         # Send an emergency notification
         if fee < BITCOIN_FEE_THRESHOLD:
-            print('IFTTT event published. Fee: ' + fee)
+            print('IFTTT event published. Fee: ' + str(fee))
             post_ifttt_webhook('bitcoin_low_fee', fee)
         else:
             print('Fees are too high to alert: ' + str(fee))
