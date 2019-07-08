@@ -19,7 +19,6 @@ def post_ifttt_webhook(event, value):
     data = {'value1': value}  # The payload that will be sent to IFTTT service
     ifttt_Key = get_ifttt_Key_from_file()
     ifttt_event_url = IFTTT_WEBHOOKS_URL.format(event, ifttt_Key)
-    print(ifttt_event_url)  # Inserts our desired event
     requests.post(ifttt_event_url, json=data)  # Sends a HTTP POST request to the webhook URL
 
 def main():
@@ -28,6 +27,7 @@ def main():
 
         # Send an emergency notification
         if fee < BITCOIN_FEE_THRESHOLD:
+            print('IFTTT event published. Fee: ' + fee)
             post_ifttt_webhook('bitcoin_low_fee', fee)
         else:
             print('Fees are too high to alert: ' + str(fee))
