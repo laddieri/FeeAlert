@@ -6,9 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pip = "*"
-install = "*"
-requests = "==2.18.4"
+requests = "*"
 
 [requires]
 python_version = "3.7"
